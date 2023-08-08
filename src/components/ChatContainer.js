@@ -24,7 +24,7 @@ function ChatContainer({closeChat}) {
             });
         }
         aggScroll()
-    }, [altro.loading, messaggi.length, scrollRef])
+    }, [altro.loading, messaggi.length, prodotti.length, scrollRef])
 
     const filtraMessaggi = useCallback(() => {
         return messaggi.filter((msg) => {

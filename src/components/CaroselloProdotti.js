@@ -20,9 +20,9 @@ function CaroselloProdotti({prodotti}) {
             const walk = (x - startX) * 2; //speed
             container.scrollLeft = scrollLeft - walk;
         });
-    }, [prodotti, prodotti.length])
+    }, [prodotti])
     
-    if(prodotti.length > 0) return (
+    return (
         <div className='lista-prodotti'>
             {prodotti.map((prod, index) => (
                 <div 
