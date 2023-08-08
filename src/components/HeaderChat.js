@@ -1,7 +1,8 @@
 import React from 'react';
 
-import closeIcon from '../images/close.png';
-import reloadIcon from '../images/reload.png';
+import CancelIcon from './CancelIcon';
+import ReloadIcon from './ReloadIcon';
+
 import ecommerceIcon from '../images/ecommerce.png';
 
 function HeaderChat({reloadChat, closeChat}) {
@@ -25,13 +26,13 @@ function HeaderChat({reloadChat, closeChat}) {
                     style={{marginRight:'12px'}}
                     onClick={() => reloadChat()}
                 >
-                    <img className="icona-bottone-header-2" alt='' src={reloadIcon} />
+                    <ReloadIcon fill={'black'} />
                 </button>
                 <button 
                     className='header-button'
                     onClick={() => closeChat()}
                 >
-                    <img className="icona-bottone-header" alt='' src={closeIcon} />
+                    <CancelIcon fill={'black'} />
                 </button>
             </div>
         </div>
