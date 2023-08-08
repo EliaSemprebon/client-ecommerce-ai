@@ -22,7 +22,9 @@ function CaroselloProdotti({prodotti}) {
         });
     }, [prodotti])
     
-    return (
+    if(prodotti.length > 0) return (
+        <div className='container-lista-prodotti'>
+
         <div className='lista-prodotti'>
             {prodotti.map((prod, index) => (
                 <div 
@@ -56,6 +58,8 @@ function CaroselloProdotti({prodotti}) {
                     </div>
                 </div>
             ))}
+        </div>
+
         </div>
     );
 }

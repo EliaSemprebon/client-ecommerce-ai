@@ -352,6 +352,12 @@
 /*                  LISTA PRODOTTI                      */
 /* **************************************************** */
 /* **************************************************** */
+.container-lista-prodotti {
+    width: 100%;
+    height: fit-content;
+    padding: 5px 0;
+}
+
 .lista-prodotti {
     display: flex;
     overflow-x: auto;
@@ -361,6 +367,7 @@
     max-width: 100%;
     margin-left: -12px;
     margin-right: -12px;
+    margin-top: -5px;
     padding: 0 12px;
     gap: 12px;
 }
