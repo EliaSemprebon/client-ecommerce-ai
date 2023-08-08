@@ -20,7 +20,7 @@ function CaroselloProdotti({prodotti}) {
             const walk = (x - startX) * 2; //speed
             container.scrollLeft = scrollLeft - walk;
         });
-    }, [])
+    }, [prodotti, prodotti.length])
     
     if(prodotti.length > 0) return (
         <div className='lista-prodotti'>

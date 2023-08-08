@@ -426,7 +426,7 @@
 }
 
 .corpo-card-prodotto {
-    padding: 8px;
+    margin: 8px;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -454,10 +454,10 @@
 }
 
 .zona-prezzo {
-    margin-top: 12px;
+    margin-top: 8px;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
 }
 
