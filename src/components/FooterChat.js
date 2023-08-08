@@ -5,6 +5,22 @@ function FooterChat({disabled, inviaMessaggio}) {
     const [valore, setValore] = useState('')
     const [inputSel, setInputSel] = useState(false)
 
+    const premiInvia = async() => {
+        if(!valore?.length) return
+        inviaMessaggio(valore)
+        setTimeout(() => {
+            setValore('')
+        }, 10);
+    }
+
+    const handleKeyDown = (e) => {
+        if(e.key === 'Enter') {
+            e.preventDefault();
+            if(!valore?.length) return null
+            else premiInvia()
+        } else return null
+    }
+
     return (
         <div>
             <div 
@@ -20,13 +36,14 @@ function FooterChat({disabled, inviaMessaggio}) {
                     placeholder='Scrivi qui la tua domanda...'
                     value={valore} onChange={(e) => setValore(e.target.value)} 
                     style={{color:'black'}}
+                    onKeyDown={handleKeyDown}
                     onBlur={() => setInputSel(false)}
                     onFocus={() => setInputSel(true)}
                     autoComplete={'off'} autoCorrect={'off'}
                 />
                 <button
                     disabled={disabled}
-                    onClick={async() => null}
+                    onClick={async() => await premiInvia()}
                     className="footer-btn-invia"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={'#4994F8'} aria-hidden="true" className='icona-invia'>

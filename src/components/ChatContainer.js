@@ -1,4 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
+import { create } from "apisauce";
+
+import { API_URL } from "../config";
 
 import Loading from './Loading';
 import HeaderChat from './HeaderChat';
@@ -9,6 +12,7 @@ function ChatContainer({closeChat}) {
 
     const scrollRef = useRef()
 
+    const [prodotti, setProdotti] = useState([])
     const [messaggi, setMessaggi] = useState([])
     const [altro, setAltro] = useState({errore:null, loading:false})
 
@@ -21,6 +25,18 @@ function ChatContainer({closeChat}) {
         aggScroll()
     }, [altro.loading, messaggi.length, scrollRef])
 
+    const filtraMessaggi = useCallback(() => {
+        return messaggi.filter((msg) => {
+            if(msg.role == 'user') return true;
+            if(msg.role == 'function') return false;
+            if(msg.role == 'assistant') {
+                if(msg.content?.length > 0) return true;
+                return false;
+            }
+            return false;
+        })
+    }, [messaggi])
+
     const reloadChat = () => {
         if(altro.loading) return
         setMessaggi([])
@@ -28,6 +44,32 @@ function ChatContainer({closeChat}) {
         setTimeout(() => {
             setAltro({...altro, loading:false, errore:null})
         }, 300);
+    }
+
+    const inviaMessaggio = async(value) => {
+        //controllo loading
+        if(!value?.length) return
+        if(altro.loading) return
+        setAltro({...altro, errore:null, loading:true})
+        //preparo i messaggi
+        const listMsg = Array.from(messaggi)
+        listMsg.push({role:'user', content:value})
+        const sendData = {messages: listMsg}
+        messaggi.push({role:'user', content:value})
+        //invio richiesta di messaggio
+        const apiClient = create ({baseUrl: ""});
+        const response = await apiClient.post(API_URL + '/message', sendData);
+        if(!response.ok) {
+            console.log(response.data);
+            return setAltro({
+                ...altro, loading:false, 
+                errore:'Stiamo ricevendo troppe richieste. Riprova tra un minuto.'
+            })
+        }
+        //confermo il messaggio
+        setMessaggi(response.data.messages)
+        setProdotti(response.data.products)
+        setAltro({...altro, loading:false, errore:null})
     }
 
     return (
@@ -50,7 +92,7 @@ function ChatContainer({closeChat}) {
                         content:'👋 Ciao! Sono l\'assistente virtuale di Sucuku.com, come posso aiutarti?'
                     }}
                 ></ChatMessage>
-                {messaggi.map((msg, index) => (
+                {filtraMessaggi().map((msg, index) => (
                     <ChatMessage
                         key={index}
                         message={msg}
@@ -74,7 +116,7 @@ function ChatContainer({closeChat}) {
 
             <FooterChat
                 disabled={altro.loading}
-                inviaMessaggio={() => null}
+                inviaMessaggio={inviaMessaggio}
             ></FooterChat>
         </div>
     );
