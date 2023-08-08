@@ -1,7 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react';
 
+import Loading from './Loading';
 import HeaderChat from './HeaderChat';
 import FooterChat from './FooterChat';
+import ChatMessage from './ChatMessage';
 
 function ChatContainer({closeChat}) {
 
@@ -42,6 +44,31 @@ function ChatContainer({closeChat}) {
                 className='chat-container'
                 style={{backgroundColor:'white'}}
             >
+                <ChatMessage
+                    message={{
+                        role:'assistant',
+                        content:'👋 Ciao! Sono l\'assistente virtuale di Sucuku.com, come posso aiutarti?'
+                    }}
+                ></ChatMessage>
+                {messaggi.map((msg, index) => (
+                    <ChatMessage
+                        key={index}
+                        message={msg}
+                    ></ChatMessage>
+                ))}
+                {altro.loading &&
+                    <div className='loading-container'>
+                        <Loading width={50} height={50} />
+                    </div>
+                }
+                {altro.errore && <div className='container-errore-chat'>
+                    <div className='zona-errore-chat'>
+                        <span
+                            style={{color:'black'}}
+                            className='testo-errore-chat'
+                        >{altro.errore}</span>
+                    </div>
+                </div>}
                 <div ref={scrollRef} />
             </div>
 

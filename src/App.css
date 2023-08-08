@@ -52,9 +52,9 @@
     justify-content: space-between;
     bottom: 110px;
     width: 480px;
-    height: 750px;
+    height: 850px;
     max-width: 85%;
-    max-height: 80vh;
+    max-height: 85vh;
     box-shadow: rgba(150, 150, 150, 0.15) 0px 6px 24px 0px, rgba(150, 150, 150, 0.15) 0px 0px 0px 1px;
     border-radius: 10px;
     overflow: hidden;
@@ -145,6 +145,63 @@
     width: 24px;
     height: 24px;
     object-fit: contain;
+}
+
+
+
+
+
+/**********************************************************/
+/**********************************************************/
+/************************ MESSAGGI ************************/
+/**********************************************************/
+/**********************************************************/
+.chat-message-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.chat-message-user-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat-message {
+    width: auto;
+    max-width: 87%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    float: right;
+    font-family: 'Nunito' !important;
+    font-size: 13px;
+    white-space: pre-line;
+}
+
+.chat-message-user {
+    width: auto;
+    max-width: 87%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    float: left;
+    font-family: 'Nunito' !important;
+    font-size: 13px;
+    white-space: pre-line;
+}
+
+.nome-chatbot {
+    font-family: 'Nunito' !important;
+    font-size: 12px;
+    margin: 0 0 2px 4px;
+}
+
+.loading-container {
+    width: fit-content;
+    display: flex;
+    align-items: flex-start;
 }
 
 
@@ -245,4 +302,35 @@
     color: #3f3f46;
     font-family: 'Nunito' !important;
     text-decoration: none !important;
+}
+
+
+/* **************************************************** */
+/* **************************************************** */
+/*                  ERRORE CHAT                         */
+/* **************************************************** */
+/* **************************************************** */
+.container-errore-chat {
+    width: 100%;
+    margin: 2px 0 0;
+}
+
+.zona-errore-chat {
+    width: 100%;
+    border: 1px solid #FC2A1B;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    background-color: hsl(4, 97%, 55%, 0.2);
+}
+
+.testo-errore-chat {
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    color: black;
+    opacity: 0.9;
+    font-family: 'Nunito' !important;
 }
