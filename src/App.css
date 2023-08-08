@@ -305,6 +305,9 @@
 }
 
 
+
+
+
 /* **************************************************** */
 /* **************************************************** */
 /*                  ERRORE CHAT                         */
@@ -334,3 +337,137 @@
     opacity: 0.9;
     font-family: 'Nunito' !important;
 }
+
+
+
+
+
+
+
+
+
+
+/* **************************************************** */
+/* **************************************************** */
+/*                  LISTA PRODOTTI                      */
+/* **************************************************** */
+/* **************************************************** */
+
+.container-lista-prodotti {
+    width: calc(100% + 24px);
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-top: 0px;
+    overflow-x: scroll;
+}
+
+.container-lista-prodotti::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    display: none;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.container-lista-prodotti::-webkit-scrollbar-thumb{
+    width: 0;
+    height: 0;
+    display: none;
+    background:#dcdcdc;
+    border-radius: 8px;
+}
+
+.lista-prodotti {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap:12px;
+}
+
+.card-prodotto {
+    width: 230px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dcdcdc;
+    display: flex;
+    flex-direction: column;
+}
+
+.zona-immagini-card-prodotto {
+    width: 100%;
+    height: 150px;
+    background-color: #EBEBEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-card-prodotto {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+}
+
+.corpo-card-prodotto {
+    padding: 8px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.zona-nome-prodotto {
+    display: flex;
+    flex-direction: column;
+}
+
+.nome-prodotto {
+    color: black;
+    font-family: 'Nunito' !important;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.descrizione-prodotto {
+    color: black;
+    font-family: 'Nunito' !important;
+    font-size: 12px;
+    line-height: 1.0;
+    margin-top: 3px;
+}
+
+.zona-prezzo {
+    margin-top: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prezzo-prodotto {
+    color: black;
+    font-family: 'Nunito' !important;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.bottone-card-prodotto {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 3px 0;
+    border-radius: 8px;
+    width: 60px;
+    font-size: 12px;
+    font-family: 'Nunito' !important;
+}
+
+.bottone-card-prodotto :hover :active :focus {
+    border: none !important;
+    outline: none !important;
+    background-color: transparent !important;
+}
+
+
