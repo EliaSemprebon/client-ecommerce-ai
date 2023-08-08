@@ -352,16 +352,20 @@
 /*                  LISTA PRODOTTI                      */
 /* **************************************************** */
 /* **************************************************** */
-
-.container-lista-prodotti {
-    width: calc(100% + 24px);
+.lista-prodotti {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
     margin-left: -12px;
     margin-right: -12px;
-    margin-top: 0px;
-    overflow-x: scroll;
+    padding: 0 12px;
+    gap: 12px;
 }
 
-.container-lista-prodotti::-webkit-scrollbar{
+.lista-prodotti::-webkit-scrollbar{
     width: 0;
     height: 0;
     display: none;
@@ -369,7 +373,7 @@
     border-radius: 8px;
 }
 
-.container-lista-prodotti::-webkit-scrollbar-thumb{
+.lista-prodotti::-webkit-scrollbar-thumb{
     width: 0;
     height: 0;
     display: none;
@@ -377,16 +381,9 @@
     border-radius: 8px;
 }
 
-.lista-prodotti {
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    padding-left: 12px;
-    padding-right: 12px;
-    gap:12px;
-}
-
 .card-prodotto {
+    flex: 0 0 auto;
+    cursor: pointer;
     width: 230px;
     border-radius: 8px;
     overflow: hidden;
@@ -402,12 +399,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .img-card-prodotto {
     width: auto;
     height: auto;
     max-height: 100%;
+}
+
+.sconto-card-prodotto {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    background-color: #4994F8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 10px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Nunito' !important;
 }
 
 .corpo-card-prodotto {
@@ -434,7 +449,7 @@
     color: black;
     font-family: 'Nunito' !important;
     font-size: 12px;
-    line-height: 1.0;
+    line-height: 1.1;
     margin-top: 3px;
 }
 
@@ -462,6 +477,9 @@
     width: 60px;
     font-size: 12px;
     font-family: 'Nunito' !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bottone-card-prodotto :hover :active :focus {
