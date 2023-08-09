@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import PrevIcon from './PrevIcon';
 import NextIcon from './NextIcon';
+import NoImagesIcon from '../images/no-images.png';
 
 function CardProdotto({prod, index}) {
 
@@ -16,12 +17,14 @@ function CardProdotto({prod, index}) {
         // Imposta l'indice iniziale della slide
         let currentIndex = 0;
         // Aggiungi il gestore di eventi per la freccia "precedente"
-        prevButton.addEventListener('click', () => {
+        prevButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
             updateCarousel();
         });
         // Aggiungi il gestore di eventi per la freccia "successivo"
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener('click', (event) => {
+            event.stopPropagation();
             currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
             updateCarousel();
         });
@@ -37,19 +40,19 @@ function CardProdotto({prod, index}) {
                 className='zona-immagini-card-prodotto'
                 id={'zona-immagini-card-prodotto-' + index}
             >   
-                {/* {prod.images.length == 0 &&
-                    <img className='img-card-prodotto' src={prod.images[0]} alt='' />
-                } */}
+                {prod.images.length == 0 &&
+                    <img className='img-card-prodotto' src={NoImagesIcon} alt='' />
+                }
                 <ul className="carousel-immagini-prodotto" id={'carousel-immagini-prodotto-' + index}>
                     {prod.images.map((img, index) => (
                         <li key={index}><img src={img} alt="" /></li>
                     ))}
                 </ul>
                 {prod.images.length > 1 && <>
-                    <button className="prev-button" style={{left:'8px'}}>
+                    <button className="prev-button" style={{left:'8px'}} onClick={(e) => e.stopPropagation()}>
                         <PrevIcon fill={'#4994F8'} />
                     </button>
-                    <button className="next-button" style={{right:'8px'}}>
+                    <button className="next-button" style={{right:'8px'}} onClick={(e) => e.stopPropagation()}>
                         <NextIcon fill={'#4994F8'} />
                     </button>
                 </>}
