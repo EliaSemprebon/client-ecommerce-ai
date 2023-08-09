@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 
+import PrevIcon from './PrevIcon';
+import NextIcon from './NextIcon';
+
 function CardProdotto({prod, index}) {
 
     useEffect(() => {
@@ -43,8 +46,12 @@ function CardProdotto({prod, index}) {
                     ))}
                 </ul>
                 {prod.images.length > 1 && <>
-                    <button className="prev-button" style={{left:'8px'}}>{"<"}</button>
-                    <button className="next-button" style={{right:'8px'}}>{">"}</button>
+                    <button className="prev-button" style={{left:'8px'}}>
+                        <PrevIcon fill={'#4994F8'} />
+                    </button>
+                    <button className="next-button" style={{right:'8px'}}>
+                        <NextIcon fill={'#4994F8'} />
+                    </button>
                 </>}
                 {prod.reductionPercent > 0 &&
                     <span className='sconto-card-prodotto'>{prod.reductionPercent}%</span>
