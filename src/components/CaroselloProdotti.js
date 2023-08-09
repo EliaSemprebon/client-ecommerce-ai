@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 
+import CardProdotto from './CardProdotto';
+
 function CaroselloProdotti({prodotti}) {
 
     useEffect(() => {
@@ -24,42 +26,15 @@ function CaroselloProdotti({prodotti}) {
     
     if(prodotti.length > 0) return (
         <div className='container-lista-prodotti'>
-
-        <div className='lista-prodotti'>
-            {prodotti.map((prod, index) => (
-                <div 
-                    key={index}
-                    className='card-prodotto'
-                >
-                    <div className='zona-immagini-card-prodotto'>
-                        {prod.reductionPercent > 0 &&
-                            <span className='sconto-card-prodotto'>{prod.reductionPercent}%</span>
-                        }
-                        {prod.reductionAmount > 0 &&
-                            <span className='sconto-card-prodotto'>-{prod.reductionAmount}€</span>
-                        }
-                        <img className='img-card-prodotto' src='https://sandroferrone.it/2528400-home_default/cappotto-diagonale-touch.jpg' alt='' />
-                    </div>
-                    <div className='corpo-card-prodotto'>
-                        <div className='zona-nome-prodotto'>
-                            <span className='nome-prodotto'>{prod.name}</span>
-                            <span className='descrizione-prodotto'>{prod.description}</span>
-                        </div>
-                        <div className='zona-prezzo'>
-                            <span className='prezzo-prodotto'>{parseFloat(prod.price).toFixed(2)}€</span>
-                            <a 
-                                href={prod.url} target='_blank'
-                                className='bottone-card-prodotto'
-                                style={{border:'1px solid #4994F8', fontWeight:'bold', 
-                                    backgroundColor:'#4994F8', color:'white', textDecoration:'none'
-                                }}
-                            >Vedi</a>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-
+            <div className='lista-prodotti'>
+                {prodotti.map((prod, index) => (
+                    <CardProdotto
+                        key={index}
+                        index={index}
+                        prod={prod}
+                    ></CardProdotto>
+                ))}
+            </div>
         </div>
     );
 }
