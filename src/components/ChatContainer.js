@@ -92,7 +92,7 @@ function ChatContainer({closeChat}) {
                 <ChatMessage
                     message={{
                         role:'assistant',
-                        content:'👋 Ciao! Sono l\'assistente virtuale di Sucuku.com, come posso aiutarti?'
+                        content:'👋 Ciao! Sono l\'assistente virtuale di Donnashop.it, come posso aiutarti?'
                     }}
                 ></ChatMessage>
                 {filtraMessaggi().map((msg, index) => (

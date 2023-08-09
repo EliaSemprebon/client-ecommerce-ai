@@ -32,11 +32,11 @@ function ChatMessage({message}) {
             <span 
                 className='nome-chatbot'
                 style={{color:'black'}}
-             >Sucuku.com</span>
+             >Donnashop.it</span>
             <div className='chat-message-container'>
                 <div
                     className='chat-message'
-                    style={{color:'black', backgroundColor:'#dcdcdc'}}
+                    style={{color:'black', backgroundColor:'#edf6ff'}}
                 >
                     <style>
                         {`.chat-message a {

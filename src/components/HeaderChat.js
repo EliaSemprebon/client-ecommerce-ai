@@ -2,8 +2,7 @@ import React from 'react';
 
 import CancelIcon from './CancelIcon';
 import ReloadIcon from './ReloadIcon';
-
-import ecommerceIcon from '../images/ecommerce.png';
+import EcommerceIcon from './EcommerceIcon';
 
 function HeaderChat({reloadChat, closeChat}) {
     
@@ -13,11 +12,11 @@ function HeaderChat({reloadChat, closeChat}) {
             style={{backgroundColor:'#4994F8'}}
         >
             <div className='zona-titolo-header'>
-                <img src={ecommerceIcon} alt='' className='logo-header' />
+                <EcommerceIcon width={'28px'} height={'28px'} fill={'white'} />
                 <span 
                     className='titolo-chat'
-                    style={{marginLeft:'8px', color:'black'}}
-                >Sucuku.com</span>
+                    style={{marginLeft:'8px', color:'white'}}
+                >Donnashop.it</span>
             </div>
 
             <div className='bottoni-header'>
@@ -26,13 +25,13 @@ function HeaderChat({reloadChat, closeChat}) {
                     style={{marginRight:'12px'}}
                     onClick={() => reloadChat()}
                 >
-                    <ReloadIcon fill={'black'} />
+                    <ReloadIcon fill={'white'} />
                 </button>
                 <button 
                     className='header-button'
                     onClick={() => closeChat()}
                 >
-                    <CancelIcon fill={'black'} />
+                    <CancelIcon fill={'white'} />
                 </button>
             </div>
         </div>

@@ -1,8 +1,8 @@
 import "./App.css";
 import React, { useState, useEffect } from 'react';
 
-import closeIcon from './images/close.png';
-import ecommerceIcon from './images/ecommerce.png';
+import CancelIcon from './components/CancelIcon';
+import EcommerceIcon from './components/EcommerceIcon';
 import ChatContainer from "./components/ChatContainer";
 
 function App() {
@@ -62,8 +62,8 @@ function App() {
 				onMouseLeave={() => document.getElementById('chat-button-element').style.transform = 'scale(1)'}
 			>
                 <div className="chat-button-icon">
-				    {!isOpen && <img className="icona-chatbot" alt='' src={ecommerceIcon} />}
-                    {isOpen && <img className="icona-chatbot-chiudi" alt='' src={closeIcon} />}
+				    {!isOpen && <EcommerceIcon width={'38px'} height={'38px'} fill={'white'} />}
+                    {isOpen && <CancelIcon fill={'white'} />}
                 </div>
 			</div>
 
